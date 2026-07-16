@@ -381,8 +381,8 @@ const SAMPLE_DATA = {
   nte: { total: 160, used: 118, org: "Sample NTE Tracking" },
   daysRemaining: { start: "2025-12-01", end: "2026-03-15", label: "Go-live" },
   slotActive: "daysRemaining",
-  clm: { level: "red", heading: "Critical Leadership Message",
-    message: "SAMPLE — this shows the <strong>Red</strong> critical-message style; the State dropdown also offers Green and Amber, each with its own icon and pulse." },
+  clm: { level: "amber", heading: "Critical Leadership Message",
+    message: "SAMPLE — this shows the <strong>Amber</strong> critical-message style; the State dropdown also offers Green and Red, each with its own icon and pulse." },
   accomplishments: [
     "Completed the <strong>Q1 security review</strong> two days ahead of schedule.",
     "Vendor kickoff call held with <em>Northwind Logistics</em> to scope the integration.",
@@ -409,22 +409,22 @@ const SAMPLE_DATA = {
   metrics: {
     actionItems: {
       title: "Total Open Action Items",
-      total: 12, link: "https://prostellis.com", closedThisPeriod: 4,
+      total: 11, link: "https://prostellis.com", closedThisPeriod: 4,
       segments: [
         { key: "Complete",     n: 4, cls: "seg-green" },
         { key: "In Progress",  n: 3, cls: "seg-blue"  },
         { key: "Pending/Hold", n: 2, cls: "seg-amber" },
-        { key: "Not Started",  n: 2, cls: "seg-grey"  },
-        { key: "Blocked",      n: 1, cls: "seg-red"   }
+        { key: "Not Started",  n: 2, cls: "seg-grey"  }
       ]
     },
     onboarding: {
       title: "Onboarding & Transition Tasks",
-      total: 18, link: "https://prostellis.com",
+      total: 19, link: "https://prostellis.com",
       segments: [
         { key: "Complete",    n: 10, cls: "seg-green" },
         { key: "In Progress", n: 5,  cls: "seg-blue"  },
-        { key: "Not Started", n: 3,  cls: "seg-grey"  }
+        { key: "Not Started", n: 3,  cls: "seg-grey"  },
+        { key: "Blocked",     n: 1,  cls: "seg-red"   }
       ]
     }
   }

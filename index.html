@@ -227,6 +227,76 @@
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
   .toast.err { background:#9A5757; }
 
+  /* ---- AI Update / AI Refine buttons (shared brand-blue accent in the toolbar) ---- */
+  .btn.ai { background:var(--blue-soft); border-color:var(--blue-line); color:#2f5f86; font-weight:600; }
+  .btn.ai svg { color:var(--brand-blue); }
+  .btn.ai:hover { border-color:var(--brand-blue); }
+
+  /* ---- Modals (AI Update / AI Refine + Review & Merge) ---- */
+  .modal-bg { position:fixed; inset:0; background:rgba(28,40,49,.46); display:none;
+    align-items:flex-start; justify-content:center; padding:40px 18px; z-index:80; overflow-y:auto; }
+  .modal-bg.open { display:flex; }
+  .modal { background:var(--surface); border-radius:14px; width:100%; max-width:860px;
+    box-shadow:0 24px 60px rgba(28,40,49,.28); overflow:hidden; }
+  .modal.wide { max-width:900px; }
+  .modal-head { display:flex; align-items:flex-start; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line); }
+  .modal-head .mh-icon { width:34px; height:34px; border-radius:9px; background:var(--blue-soft); color:var(--brand-blue);
+    display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .modal-head .mh-icon svg { width:19px; height:19px; }
+  .modal-head .mh-txt { flex:1; }
+  .modal-head .mh-title { font-family:var(--font-display); font-weight:600; font-size:1.02rem; color:var(--ink); }
+  .modal-head .mh-sub { font-size:.78rem; color:var(--muted); margin-top:2px; line-height:1.4; }
+  .modal-head .mh-x { border:none; background:transparent; color:var(--muted); font-size:1.4rem; line-height:1;
+    cursor:pointer; padding:2px 6px; border-radius:6px; }
+  .modal-head .mh-x:hover { background:var(--line-soft); color:var(--ink); }
+  .modal-body { padding:16px 20px 20px; }
+
+  .scope-note { display:flex; gap:9px; align-items:flex-start; background:var(--blue-soft);
+    border:1px solid var(--blue-line); border-radius:9px; padding:11px 13px; margin-bottom:18px; }
+  .scope-note svg { width:17px; height:17px; color:var(--brand-blue); flex:0 0 auto; margin-top:1px; }
+  .scope-note div { font-size:.8rem; color:#2f5f86; line-height:1.55; }
+
+  .ai-step { margin-bottom:18px; }
+  .ai-step:last-child { margin-bottom:0; }
+  .bs-head { display:flex; align-items:center; gap:8px; font-size:.86rem; font-weight:600; color:var(--ink); margin-bottom:8px; }
+  .bs-num { width:20px; height:20px; border-radius:50%; background:var(--brand-blue); color:#fff;
+    font-size:.76rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .ai-step textarea { width:100%; min-height:66px; }
+  .bs-actions { display:flex; align-items:center; gap:10px; margin-top:9px; flex-wrap:wrap; }
+  .bs-hint { font-size:.74rem; color:var(--muted); }
+  .refine-picks { display:flex; flex-direction:column; gap:9px; margin-bottom:2px; }
+  .refine-picks label { display:flex; align-items:center; gap:9px; font-size:.86rem; color:var(--ink); cursor:pointer; }
+  .refine-picks input[type=checkbox] { width:auto; flex:0 0 auto; margin:0; cursor:pointer; }
+
+  .merge-setall { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap; font-size:.82rem; color:var(--ink); }
+  .seg2 { display:inline-flex; border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; }
+  .seg2 button { border:none; background:var(--surface); color:var(--muted); font-size:.78rem; padding:5px 12px; cursor:pointer; font-family:var(--font-body); white-space:nowrap; }
+  .seg2 button.on { background:var(--brand-blue); color:#fff; }
+  .mcard { border:1px solid var(--line); border-radius:12px; padding:13px 14px; margin-bottom:12px; }
+  .mcard-top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .mcard-nm { font-size:.88rem; font-weight:600; color:var(--ink); }
+  .mcard-tp { font-size:.72rem; color:var(--muted); margin-left:6px; }
+  .mcard-ctrls { display:flex; align-items:center; gap:8px; }
+  .cmp { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .cmp .box { border-radius:8px; padding:9px 11px; }
+  .cmp .box.cur { background:var(--surface); border:1px solid var(--line); }
+  .cmp .box.inc { background:var(--blue-soft); border:1px solid var(--blue-line); }
+  .cmp .box .cap { font-size:.66rem; font-weight:600; letter-spacing:.05em; margin-bottom:4px; }
+  .cmp .box.cur .cap { color:var(--muted); }
+  .cmp .box.inc .cap { color:#2f5f86; }
+  .cmp .box .val { font-size:.8rem; line-height:1.5; color:var(--ink); }
+  .cmp .box.inc .val { color:#2f5f86; }
+  .mitem { display:flex; align-items:flex-start; gap:9px; padding:6px 0; }
+  .mitem input[type=checkbox] { margin-top:3px; flex:0 0 auto; width:auto; }
+  .mitem.excl label { color:var(--muted); text-decoration:line-through; }
+  .mitem.excl { opacity:.6; }
+  .mitem label { font-size:.84rem; color:var(--ink); line-height:1.5; }
+  .mitem .skip { font-size:.72rem; color:var(--muted); margin-left:auto; flex:0 0 auto; }
+  .merge-foot { display:flex; align-items:center; justify-content:space-between; gap:12px;
+    border-top:1px solid var(--line); padding-top:14px; margin-top:4px; flex-wrap:wrap; }
+  .merge-sum { font-size:.78rem; color:var(--muted); }
+  .mf-actions { display:flex; gap:8px; }
+
   /* ---- Responsive: stack panes ---- */
   @media (max-width:860px) {
     body { overflow:auto; height:auto; }
@@ -254,6 +324,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5L5 20"/></svg>Save Image</button>
       <button class="btn ghost" id="btnImportHtml" title="Import report data from a previously downloaded HTML report">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/><path d="M4 8V5a1 1 0 0 1 1-1h4"/></svg>Import HTML</button>
+      <button class="btn ai" id="btnUpdate" title="Draft the narrative sections with your own AI (manual copy-paste; nothing is sent automatically)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4L12 3z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15z"/></svg>AI Update</button>
+      <button class="btn ai" id="btnRefine" title="Polish the existing content of the sections you pick with your own AI (manual copy-paste; nothing is sent automatically)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 9-9"/><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="M12.2 6.2 11 5"/></svg>AI Refine</button>
       <button class="btn ghost warn" id="btnSample" title="Clear the current report and load example content showing every color, type, and style">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg><span id="sampleLabel">Load Sample Data</span></button>
       <button class="btn ghost warn" id="btnReset" title="Restore the original report content">
@@ -287,6 +361,107 @@
 </div>
 
 <input type="file" id="importHtmlFile" accept=".html,text/html" style="display:none" />
+
+<!-- ============================ AI UPDATE MODAL ============================ -->
+<div class="modal-bg" id="updateModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="updateTitle">
+    <div class="modal-head">
+      <div class="mh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4L12 3z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15z"/></svg></div>
+      <div class="mh-txt"><div class="mh-title" id="updateTitle">AI Update</div>
+        <div class="mh-sub">Bring your own AI. Nothing is sent automatically — you copy and paste.</div></div>
+      <button class="mh-x" id="updateClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="scope-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>AI Update only drafts these four sections: <strong>Critical Leadership Message</strong>, <strong>Key Messages &amp; Accomplishments</strong>, <strong>Upcoming &amp; Next Priorities</strong>, and <strong>Top Issues &amp; Risks</strong>. Status tiles, metrics, milestones, and dates are never touched.</div>
+      </div>
+      <div class="ai-step">
+        <div class="bs-head"><span class="bs-num">1</span> Paste your raw update notes</div>
+        <textarea id="updateNotes" placeholder="Dictate or type rough notes — bullets, fragments, whatever you have…"></textarea>
+        <div class="bs-actions">
+          <button class="btn primary" id="updateCompile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>Compile &amp; copy prompt block</button>
+          <span class="bs-hint">Copies your notes + drafting instructions. Paste into any AI.</span>
+        </div>
+      </div>
+      <div class="ai-step">
+        <div class="bs-head"><span class="bs-num">2</span> Paste the AI's structured response back</div>
+        <textarea id="updateResponse" placeholder="[[LEADERSHIP]] … [[KEY_MESSAGES]] … [[NEXT_PRIORITIES]] … [[ISSUES_RISKS]]"></textarea>
+        <div class="bs-actions">
+          <button class="btn" id="updateParse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Parse &amp; review updates</button>
+          <button class="btn ghost" id="updateSample">Load a sample AI response</button>
+        </div>
+        <div class="bs-hint" style="margin-top:8px;">Opens Review &amp; Merge — nothing loads into your report until you confirm.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ AI REFINE MODAL ============================ -->
+<div class="modal-bg" id="refineModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="refineTitle">
+    <div class="modal-head">
+      <div class="mh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 9-9"/><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="M12.2 6.2 11 5"/></svg></div>
+      <div class="mh-txt"><div class="mh-title" id="refineTitle">AI Refine</div>
+        <div class="mh-sub">Polish what you already have. Nothing is sent automatically — you copy and paste.</div></div>
+      <button class="mh-x" id="refineClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="scope-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>AI Refine only rewrites these four sections. It sharpens wording and grammar while keeping your facts — status tiles, metrics, milestones, and dates are never touched.</div>
+      </div>
+      <div class="ai-step">
+        <div class="bs-head"><span class="bs-num">1</span> Choose which sections to refine</div>
+        <div class="refine-picks">
+          <label><input type="checkbox" data-refkey="clm" checked> Critical Leadership Message</label>
+          <label><input type="checkbox" data-refkey="accomplishments" checked> Key Messages &amp; Accomplishments</label>
+          <label><input type="checkbox" data-refkey="priorities" checked> Upcoming &amp; Next Priorities</label>
+          <label><input type="checkbox" data-refkey="risks" checked> Top Issues &amp; Risks</label>
+        </div>
+        <div class="bs-actions">
+          <button class="btn primary" id="refineCompile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>Compile &amp; copy prompt block</button>
+          <span class="bs-hint">Pulls your current content for the checked sections. Empty ones are skipped.</span>
+        </div>
+      </div>
+      <div class="ai-step">
+        <div class="bs-head"><span class="bs-num">2</span> Paste the AI's refined response back</div>
+        <textarea id="refineResponse" placeholder="[[LEADERSHIP]] … [[KEY_MESSAGES]] … [[NEXT_PRIORITIES]] … [[ISSUES_RISKS]]"></textarea>
+        <div class="bs-actions">
+          <button class="btn" id="refineParse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Parse &amp; review updates</button>
+        </div>
+        <div class="bs-hint" style="margin-top:8px;">Opens Review &amp; Merge (set to Replace) — nothing loads into your report until you confirm.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ REVIEW & MERGE MODAL ============================ -->
+<div class="modal-bg" id="mergeModal" aria-hidden="true">
+  <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="mergeTitle">
+    <div class="modal-head">
+      <div class="mh-txt"><div class="mh-title" id="mergeTitle">Review &amp; merge updates</div>
+        <div class="mh-sub">Pick what comes in, per section. AI can be wrong — untick anything to skip it.</div></div>
+      <button class="mh-x" id="mergeClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="merge-setall">
+        <strong>Set all sections:</strong>
+        <div class="seg2"><button id="setAllReplace" data-mode="replace">Replace all</button><button id="setAllAppend" data-mode="append" class="on">Append all</button></div>
+        <span class="bs-hint">You can still override any section below.</span>
+      </div>
+      <div id="mergeCards"></div>
+      <div class="merge-foot">
+        <div class="merge-sum" id="mergeSummary">—</div>
+        <div class="mf-actions">
+          <button class="btn ghost" id="mergeCancel">Cancel</button>
+          <button class="btn primary" id="mergeConfirm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Confirm merge</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1120,6 +1295,225 @@ function showBootError(err){
   try{ toast('Editor error — see the panel on the left.', true); }catch(e){}
   try{ console.error(err); }catch(e){}
 }
+/* ==================================================================================================
+   AI ASSIST — two manual, copy-paste flows that share one parse + Review & Merge back-end:
+     • AI UPDATE  — draft the narrative sections from rough notes.
+     • AI REFINE  — polish the existing content of the sections you pick.
+   Both touch ONLY the four narrative sections: Critical Leadership Message, Key Messages &
+   Accomplishments, Upcoming & Next Priorities, Top Issues & Risks. Nothing is ever sent
+   automatically; the user copies a prompt out and pastes the AI's tagged response back, then
+   reviews/merges it (Append by default for Update, Replace by default for Refine) before anything
+   touches the report.
+   ================================================================================================== */
+function escHtml(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+let aiStaged = null; // parsed sections awaiting review/merge
+
+// --- Modal open/close (shared) ---
+function openModal(id){ const m=$('#'+id); if(m){ m.classList.add('open'); m.setAttribute('aria-hidden','false'); } }
+function closeModal(id){ const m=$('#'+id); if(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); } }
+
+// --- Step 1: compile the prompt block and copy it to the clipboard ---
+function copyToClipboard(text){
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+  }catch(e){}
+  try{
+    const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }catch(e){}
+  return Promise.resolve();
+}
+function compileUpdatePrompt(){
+  const notes=($('#updateNotes').value||'').trim();
+  const block=
+`You are drafting sections of a one-page executive status report.
+Rewrite my notes into ONLY the sections below, each under its [[TAG]] header exactly as shown.
+
+[[LEADERSHIP]]
+One line — the single most important message or decision for leadership this cycle.
+If there is nothing to raise, write: No decisions needed this cycle.
+
+[[KEY_MESSAGES]]
+Bulleted accomplishments from this cycle. One per line, each starting with "- ".
+
+[[NEXT_PRIORITIES]]
+Bulleted upcoming work for next cycle. One per line, each starting with "- ".
+
+[[ISSUES_RISKS]]
+Bulleted issues and risks. One per line, each starting with "- ".
+
+MY RAW NOTES:
+${notes||'(type your notes in step 1 first)'}`;
+  copyToClipboard(block).then(()=>toast('Prompt copied — paste it into your AI, then bring the response back'));
+}
+
+// --- Sample response (so the round-trip can be tested without an external AI) ---
+function loadSampleUpdateResponse(){
+  $('#updateResponse').value=
+`[[LEADERSHIP]]
+Approve the vendor SOW change order by Fri 2/13 to protect the March cutover.
+[[KEY_MESSAGES]]
+- Data migration dry run passed at 99.4% match
+- UAT round 1 closed with 6 of 8 defects resolved
+- Cutover runbook drafted and in review
+[[NEXT_PRIORITIES]]
+- Resolve the final 2 UAT defects
+- Lock go/no-go criteria with the sponsor
+[[ISSUES_RISKS]]
+- Two field laptops are non-compliant with the new endpoint policy
+- Legacy data gaps may compress the migration window`;
+  toast('Sample response loaded — now Parse it');
+}
+
+// --- AI Refine: compile a polish prompt from the CURRENT content of the picked sections ---
+function compileRefinePrompt(){
+  const picks=Array.from(document.querySelectorAll('#refineModal input[data-refkey]:checked')).map(c=>c.dataset.refkey);
+  const blocks=[];
+  if(picks.includes('clm')){
+    const m=(data.clm && data.clm.message||'').trim();
+    if(m) blocks.push('[[LEADERSHIP]]\n'+m);
+  }
+  if(picks.includes('accomplishments') && (data.accomplishments||[]).length){
+    blocks.push('[[KEY_MESSAGES]]\n'+data.accomplishments.map(t=>'- '+t).join('\n'));
+  }
+  if(picks.includes('priorities') && (data.priorities||[]).length){
+    blocks.push('[[NEXT_PRIORITIES]]\n'+data.priorities.map(t=>'- '+t).join('\n'));
+  }
+  if(picks.includes('risks') && (data.risks||[]).length){
+    blocks.push('[[ISSUES_RISKS]]\n'+data.risks.map(r=>'- '+r.text).join('\n'));
+  }
+  if(!blocks.length){ toast('Nothing to refine — check at least one section that has content.', true); return; }
+  const block=
+`You are editing sections of a one-page executive status report.
+Refine and tighten the text below: sharpen the wording, fix grammar, keep it concise and
+executive-ready. Preserve the meaning and every fact — do not invent, add, or drop information.
+Return ONLY the same sections under the same [[TAG]] headers, in the same format (one line for
+LEADERSHIP; every other line starting with "- "). Do not add sections I did not include.
+
+${blocks.join('\n\n')}`;
+  copyToClipboard(block).then(()=>toast('Refine prompt copied — paste it into your AI, then bring the response back'));
+}
+
+// --- Step 2: parse the AI's tagged response into staged sections ---
+function parseAiResponse(responseSel, defaultMode){
+  const txt=$(responseSel).value||'';
+  const parts=txt.split(/\[\[([A-Z_]+)\]\]/).slice(1); // [tag, content, tag, content, ...]
+  const found={};
+  for(let i=0;i<parts.length;i+=2){ found[parts[i]]=(parts[i+1]||'').trim(); }
+
+  const sections=[];
+
+  if(found.LEADERSHIP){
+    const raw=found.LEADERSHIP.replace(/\s*\n\s*/g,' ').trim();
+    if(raw) sections.push({ key:'clm', label:'Critical Leadership Message', single:true, mode:defaultMode,
+      items:[{text:raw, include:true}] });
+  }
+
+  const listSplit=(s)=> s.split('\n').map(l=>l.replace(/^\s*[-*•]\s*/,'').trim()).filter(Boolean);
+
+  if(found.KEY_MESSAGES){
+    const items=listSplit(found.KEY_MESSAGES).map(t=>({text:t, include:true}));
+    if(items.length) sections.push({ key:'accomplishments', label:'Key Messages & Accomplishments', single:false, mode:defaultMode, items });
+  }
+  if(found.NEXT_PRIORITIES){
+    const items=listSplit(found.NEXT_PRIORITIES).map(t=>({text:t, include:true}));
+    if(items.length) sections.push({ key:'priorities', label:'Upcoming & Next Priorities', single:false, mode:defaultMode, items });
+  }
+  if(found.ISSUES_RISKS){
+    const items=listSplit(found.ISSUES_RISKS).map(t=>({text:t, include:true}));
+    if(items.length) sections.push({ key:'risks', label:'Top Issues & Risks', single:false, mode:defaultMode, items });
+  }
+
+  if(!sections.length){ toast("Couldn't read that format — check the [[SECTION]] markers.", true); return; }
+  aiStaged={ sections };
+  closeModal('updateModal'); closeModal('refineModal');
+  setAllMergeModes(defaultMode);
+  openModal('mergeModal');
+  renderMergeCards();
+}
+
+// --- Review & merge UI ---
+function renderMergeCards(){
+  const wrap=$('#mergeCards'); if(!wrap||!aiStaged) return;
+  wrap.innerHTML=aiStaged.sections.map((sec,si)=>{
+    const isRep=sec.mode==='replace';
+    const seg=`<div class="seg2"><button data-si="${si}" data-mode="replace" class="${isRep?'on':''}">Replace</button>`+
+              `<button data-si="${si}" data-mode="append" class="${isRep?'':'on'}">Append</button></div>`;
+    let bodyHtml;
+    if(sec.single){
+      const cur=data.clm.message||'';
+      bodyHtml=`<div class="cmp">
+        <div class="box cur"><div class="cap">CURRENT</div><div class="val">${cur?escHtml(cur):'<span style="color:var(--muted)">(empty)</span>'}</div></div>
+        <div class="box inc"><div class="cap">INCOMING</div><div class="val">${escHtml(sec.items[0].text)}</div></div>
+      </div>
+      <div class="bs-hint" style="margin-top:9px;">${isRep?'Replace overwrites your message with the incoming text.':'Append adds the incoming text onto your existing message.'}</div>`;
+    } else {
+      bodyHtml=sec.items.map((it,ii)=>{
+        return `<div class="mitem ${it.include?'':'excl'}">
+          <input type="checkbox" ${it.include?'checked':''} data-si="${si}" data-ii="${ii}">
+          <label>${escHtml(it.text)}</label>${it.include?'':'<span class="skip">skipped</span>'}</div>`;
+      }).join('')+
+      `<div class="bs-hint" style="margin-top:8px;">${isRep?'Replace overwrites this section with only the checked items.':'Append keeps your existing items and adds the checked ones.'}</div>`;
+    }
+    return `<div class="mcard">
+      <div class="mcard-top">
+        <div><span class="mcard-nm">${escHtml(sec.label)}</span><span class="mcard-tp">${sec.single?'single value':'list section'}</span></div>
+        <div class="mcard-ctrls">${seg}</div>
+      </div>${bodyHtml}</div>`;
+  }).join('');
+  updateMergeSummary();
+}
+function setMergeMode(si,mode){ aiStaged.sections[si].mode=mode; renderMergeCards(); }
+function setAllMergeModes(mode){
+  if(aiStaged) aiStaged.sections.forEach(s=>s.mode=mode);
+  const r=$('#setAllReplace'), a=$('#setAllAppend');
+  if(r) r.classList.toggle('on', mode==='replace');
+  if(a) a.classList.toggle('on', mode==='append');
+  if(aiStaged) renderMergeCards();
+}
+function toggleMergeItem(si,ii){ const it=aiStaged.sections[si].items[ii]; it.include=!it.include; renderMergeCards(); }
+function updateMergeSummary(){
+  let inc=0, skip=0, rep=0, app=0;
+  aiStaged.sections.forEach(s=>{
+    const on=s.items.filter(i=>i.include).length;
+    inc+=on; skip+=s.items.length-on;
+    if(s.mode==='replace') rep++; else app++;
+  });
+  $('#mergeSummary').textContent=`Bringing in ${inc} item(s) · ${rep} replace · ${app} append · ${skip} skipped`;
+}
+function confirmAiMerge(){
+  let n=0;
+  aiStaged.sections.forEach(s=>{
+    const incl=s.items.filter(i=>i.include);
+    if(s.single){
+      if(!incl.length) return;
+      const txt=incl[0].text;
+      if(s.mode==='replace'){
+        data.clm.message=txt;
+      } else {
+        const cur=(data.clm.message||'').trim();
+        data.clm.message = cur ? (cur+' '+txt) : txt;  // append: concatenate
+      }
+      if(!data.clm.level) data.clm.level='green';        // keep existing state; default green if none
+      n++;
+    } else if(s.key==='risks'){
+      const vals=incl.map(i=>({text:i.text, level:'risk'}));  // all imported risks default to "risk"
+      data.risks = (s.mode==='replace') ? vals : data.risks.concat(vals);
+      n+=vals.length;
+    } else { // accomplishments / priorities (arrays of strings)
+      const vals=incl.map(i=>i.text);
+      data[s.key] = (s.mode==='replace') ? vals : data[s.key].concat(vals);
+      n+=vals.length;
+    }
+  });
+  aiStaged=null;
+  closeModal('mergeModal');
+  buildForm();   // rebuild the editor fields to reflect merged content
+  commit();      // save + refresh live preview
+  toast(`Merged ${n} update(s) into the report`);
+}
+
 /* Click-to-edit: the preview posts a section key; expand that section (accordion closes others),
    scroll the editor panel to the top, and briefly flash the opened section.
    NTE Hours and Days Remaining share one editor section, so both keys resolve to it. */
@@ -1146,6 +1540,37 @@ function boot(){
     $('#importHtmlFile').addEventListener('change', e=>{ if(e.target.files[0]) importHTML(e.target.files[0]); e.target.value=''; });
     $('#btnReset').addEventListener('click', handleReset);
     $('#btnSample').addEventListener('click', handleLoadSample);
+
+    // --- AI Update wiring ---
+    $('#btnUpdate').addEventListener('click', ()=>openModal('updateModal'));
+    $('#updateClose').addEventListener('click', ()=>closeModal('updateModal'));
+    $('#updateCompile').addEventListener('click', compileUpdatePrompt);
+    $('#updateSample').addEventListener('click', loadSampleUpdateResponse);
+    $('#updateParse').addEventListener('click', ()=>parseAiResponse('#updateResponse','append'));
+    // --- AI Refine wiring ---
+    $('#btnRefine').addEventListener('click', ()=>openModal('refineModal'));
+    $('#refineClose').addEventListener('click', ()=>closeModal('refineModal'));
+    $('#refineCompile').addEventListener('click', compileRefinePrompt);
+    $('#refineParse').addEventListener('click', ()=>parseAiResponse('#refineResponse','replace'));
+    // --- Review & Merge wiring (shared) ---
+    $('#mergeClose').addEventListener('click', ()=>closeModal('mergeModal'));
+    $('#mergeCancel').addEventListener('click', ()=>closeModal('mergeModal'));
+    $('#mergeConfirm').addEventListener('click', confirmAiMerge);
+    $('#setAllReplace').addEventListener('click', ()=>setAllMergeModes('replace'));
+    $('#setAllAppend').addEventListener('click', ()=>setAllMergeModes('append'));
+    // Delegated events inside the (re-rendered) merge cards
+    $('#mergeCards').addEventListener('click', e=>{
+      const seg=e.target.closest('.seg2 button'); if(seg){ setMergeMode(+seg.dataset.si, seg.dataset.mode); return; }
+    });
+    $('#mergeCards').addEventListener('change', e=>{
+      const cb=e.target.closest('input[type=checkbox]'); if(cb){ toggleMergeItem(+cb.dataset.si, +cb.dataset.ii); return; }
+    });
+    // Backdrop click + Escape close any open modal
+    ['updateModal','refineModal','mergeModal'].forEach(id=>{
+      $('#'+id).addEventListener('click', e=>{ if(e.target.id===id) closeModal(id); });
+    });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeModal('updateModal'); closeModal('refineModal'); closeModal('mergeModal'); } });
+
     ensureHidden(data);
     recomputeTotals();
     buildForm();
